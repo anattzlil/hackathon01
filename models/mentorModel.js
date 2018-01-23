@@ -1,17 +1,32 @@
 var mongoose = require('mongoose');
 
-var mentorSchema =  new mongoose.Schema({
+var Schema = mongoose.Schema;
+
+var mentorSchema =  new Schema({
     name: String,
     lastName: String,
-    age: Number,
     city: String,
     adress: String,
-    category: String,
-    img:{data: Buffer, contentType: String },
+    category: [String],
+    // img:{data: Buffer, contentType: String },
     hobbies: [String],
     story: String,
     helpGive: String,
     helpTake: String,
-    availableTime: [Date],
-    bookingReq: [reqSchema]
-})
+    availableTime: []
+    // bookingReq: [{type: Schema.Types.ObjectId, ref:'bookingreq'}]
+}, { usePushEach: true});
+
+// var reqSchema = new mongoose.Schema({
+//     user_name: String,
+//     mentor: [{type: Schema.Types.ObjectId, ref: 'mentor'}],
+//     text: String,
+//     uploadDate: {type: Date, default: Date.now}
+// }, { usePushEach: true });
+
+var Mentor = mongoose.model('mentor', mentorSchema);
+// var BookingRequest = mongoose.model('bookingreq', reqSchema);
+
+module.exports = Mentor;
+// module.exports = BookingRequest;
+
