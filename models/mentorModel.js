@@ -8,7 +8,7 @@ var mentorSchema =  new Schema({
     city: String,
     adress: String,
     category: [String],
-    // img:{data: Buffer, contentType: String },
+    img:{name: String, data: Buffer, contentType: String },
     hobbies: [String],
     story: String,
     helpGive: String,
