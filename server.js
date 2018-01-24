@@ -1,3 +1,5 @@
+
+
 var express = require('express');
 var fs = require('fs');
 var bodyParser = require('body-parser');
@@ -136,6 +138,21 @@ app.get('/test', function(req, res){
         res.send(data);
     })
 })
+
+
+app.get('/userId', function (req,res){
+    res.send("User returned!");
+})
+
+app.get('/mentor/:id', function (req,res){
+    Mentor.findById(req.params.id, function(err,foundMentor){
+        if (err) {
+            res.send(err);
+        } else {
+            res.send("Mentor returned!");
+        }
+    }
+)});
 
 
 app.listen(9000, function() {
