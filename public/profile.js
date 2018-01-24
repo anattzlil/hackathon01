@@ -41,22 +41,17 @@ function renderMentorProfile() {
     var source = $('#profile-template').html();
     var template = Handlebars.compile(source);
     var newHTML = template (mentor);
-     $('.profile-content').append(newHTML);
+    $('.profile-content').append(newHTML);
 }
 
-
-//   var fetch = function () {
-//     $.ajax({
-//       method: "GET",
-//       url: '/posts',
-//       success: function (data) {
-//         console.log(data);
-//         posts = data;
-//         _renderPosts();
-
-//       },
-//       error: function (jqXHR, textStatus, errorThrown) {
-//         console.log(textStatus);
-//       }
-//     });
-//   };
+$('.profile-content').on('click', '.arrow-back', function(){
+        $.ajax ({
+            method: "GET",
+            url: '/',
+            success: function () {
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus);
+            }
+        });
+});

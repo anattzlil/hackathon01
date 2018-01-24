@@ -17,25 +17,23 @@ body {
     padding-right: 30px;
     background-color: white;
    
-   }
+}
    
-   .logo {
-     width:120px;
-     margin-right: auto;
-     margin-top: -5px;
-
-    
-   } 
+.logo {
+    width:120px;
+    margin-right: auto;
+    margin-top: -2px;
+} 
    
-   .navbar {
+.navbar {
        display: flex;
        flex-direction: row ;
        list-style-type: none;
        
-   }
+}
  
    
-   .nav-link {
+.nav-link {
        /* margin-left: 5px; */
        margin-top: 15px;
        margin-right: 20px;
@@ -43,7 +41,7 @@ body {
        padding: 10px;
        font-weight: 600;
        font-family: "Open Sans";
-   } 
+} 
 
 .choose-category {
     text-decoration: none;
