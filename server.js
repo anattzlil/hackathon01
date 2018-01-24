@@ -14,11 +14,11 @@ var Schema = mongoose.Schema;
 
 // img path
 var imgPath0 = './public/img/profile1_0.png';
-var imgPath1 = './public/img/profile1_0.png';
-var imgPath2 = './public/img/profile1_0.png';
-var imgPath3 = './public/img/profile1_0.png';
-var imgPath4 = './public/img/profile1_0.png';
-var imgPath5 = './public/img/profile1_0.png';
+var imgPath1 = './public/img/profile2.png';
+var imgPath2 = './public/img/profile4.png';
+var imgPath3 = './public/img/profile5.png';
+var imgPath4 = './public/img/profile6.png';
+var imgPath5 = './public/img/profile7.png';
 
 
 
@@ -74,14 +74,79 @@ var newMentor3 = new Mentor({
     availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
 });
 
-newMentor0.img.data = fs.readFileSync(imgPath0);
-newMentor0.img.contentType = 'image/png';
-newMentor0.img.name = 'profile1';
-newMentor0.save(function (err, image) {
-      if (err) throw err;
-    console.log('saved img'+ newMentor0.name +' to mongo');
+var newMentor4 = new Mentor({
+    name: "Udi",
+    lastName: "Usmadar",
+    city: "Raanana",
+    adress: "Keren-ha-Yesod, 1, 1",
+    category: "Cooking",
+    hobbies: ["Meditaiting", "Roping-jumps"],
+    story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
+    helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
+    helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
+    availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
 });
 
+var newMentor5 = new Mentor({
+    name: "Nana",
+    lastName: "Maro",
+    city: "Ramar Gan",
+    adress: "Haroe, 1, 1",
+    category: "Traveling",
+    hobbies: ["Singing", "Dancing salas"],
+    story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
+    helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
+    helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
+    availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
+});
+
+// newMentor0.img.data = fs.readFileSync(imgPath0);
+// newMentor0.img.contentType = 'image/png';
+// newMentor0.img.name = 'profile1';
+// newMentor0.save(function (err, image) {
+//       if (err) throw err;
+//     console.log('saved img '+ newMentor0.name +' to mongo');
+// });
+
+// newMentor1.img.data = fs.readFileSync(imgPath1);
+// newMentor1.img.contentType = 'image/png';
+// newMentor1.img.name = 'profile1';
+// newMentor1.save(function (err, image) {
+//       if (err) throw err;
+//     console.log('saved img '+ newMentor1.name +' to mongo');
+// });
+
+// newMentor2.img.data = fs.readFileSync(imgPath2);
+// newMentor2.img.contentType = 'image/png';
+// newMentor2.img.name = 'profile1';
+// newMentor2.save(function (err, image) {
+//       if (err) throw err;
+//     console.log('saved img '+ newMentor2.name +' to mongo');
+// });
+
+// newMentor3.img.data = fs.readFileSync(imgPath3);
+// newMentor3.img.contentType = 'image/png';
+// newMentor3.img.name = 'profile1';
+// newMentor3.save(function (err, image) {
+//       if (err) throw err;
+//     console.log('saved img '+ newMentor3.name +' to mongo');
+// });
+
+// newMentor4.img.data = fs.readFileSync(imgPath4);
+// newMentor4.img.contentType = 'image/png';
+// newMentor4.img.name = 'profile1';
+// newMentor4.save(function (err, image) {
+//       if (err) throw err;
+//     console.log('saved img '+ newMentor4.name +' to mongo');
+// });
+
+// newMentor5.img.data = fs.readFileSync(imgPath5);
+// newMentor5.img.contentType = 'image/png';
+// newMentor5.img.name = 'profile1';
+// newMentor5.save(function (err, image) {
+//       if (err) throw err;
+//     console.log('saved img  '+ newMentor5.name +' to mongo');
+// });
 
 
 var app = express();
