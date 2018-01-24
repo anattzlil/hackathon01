@@ -14,29 +14,33 @@
 //         });
 //     };
 
-var mentors =[]
+var mentor;
+
+var id = (window.location.pathname).slice(8);
+console.log(id);
 
 //get the relevent mentor data
-var fetch = function() {
-    $.ajax({
+$.ajax({
         method:"GET",
-        url:'mentor-profile',
+        url:'profile-data/'+id,
         success: function(data) {
             console.log(data);
-            mentors = data;
+            mentor = data;
+            mentor.img = './../../img/profile'+img_id+'.png';
             renderMentorProfile();
         },
         error: function (jqXHR, textStatus, errorThrown) {
                      console.log(textStatus);
                  }
-    });
-};
+});
+
+
 
 // render the mentor page with relevant data
 function renderMentorProfile() {
     var source = $('#profile-template').html();
     var template = Handlebars.compile(source);
-    var newHTML = template (mentors);
+    var newHTML = template (mentor);
      $('.profile-content').append(newHTML);
 }
 
