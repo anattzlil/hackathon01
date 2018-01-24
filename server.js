@@ -78,10 +78,10 @@ var newMentor3 = new Mentor({
 newMentor0.img.data = fs.readFileSync(imgPath0);
 newMentor0.img.contentType = 'image/png';
 newMentor0.img.name = 'profile1';
-newMentor0.save(function (err, image) {
-      if (err) throw err;
-    console.log('saved img'+ newMentor0.name +' to mongo');
-});
+// newMentor0.save(function (err, image) {
+//       if (err) throw err;
+//     console.log('saved img'+ newMentor0.name +' to mongo');
+// });
 
 
 
@@ -97,6 +97,14 @@ app.get('/results', function(req, res){
         else{
            res.send(data);
         };
+    }));
+});
+
+app.get('/category/:name', function(req,res){
+    Mentor.find({category:[req.params.name]}, (function(err, data){
+        if(err) throw error;
+        else{console.log(data)
+            res.send(data); } ;
     }));
 });
 
