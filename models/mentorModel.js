@@ -3,11 +3,12 @@ var mongoose = require('mongoose');
 var Schema = mongoose.Schema;
 
 var mentorSchema =  new Schema({
+    img_id: Number,
     name: String,
     lastName: String,
     city: String,
     adress: String,
-    category: String,
+    category: [String],
     img:{name: String, data: Buffer, contentType: String },
     hobbies: [String],
     story: String,

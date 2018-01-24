@@ -14,7 +14,7 @@ var getMentors = function () {
             var counter = 1;
             for (i in data) {
                 mentors[i] = data[i];
-                mentors[i].img = 'img/profile'+i+'.png';
+                mentors[i].img = 'img/profile'+mentors[i].img_id+'.png';
                 mentors[i].class = "shape" + counter;
                 if(counter === 1 || counter === 3 || counter === 5){
                     mentors[i].append = 'img/rec.png'
@@ -46,10 +46,14 @@ var category = function(category_name){
         url: 'category/' + category_name,
         success: function (data) {
             console.log(data);
+            $('.current').empty();
+            var categoryName = category_name.toUpperCase();
+            $('.current').append('<p class="category-name">'+ categoryName +'</p>')
             mentors = [];
             var counter = 1;
             for (i in data) {
                 mentors[i] = data[i];
+                mentors[i].img = 'img/profile'+mentors[i].img_id+'.png';
                 mentors[i].class = "shape" + counter;
                 if(counter === 1 || counter === 3 || counter === 5){
                     mentors[i].append = 'img/rec.png'

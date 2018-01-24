@@ -20,6 +20,7 @@
     <div class="row-headline">
         <h5 class="present">presenting your</h5>
         <h1 class="mentorz">MENTORZ</h1>
+        <div class="current"></div>
         <li class="catagory-drop">
             <a class="choose-category" href="#">CHOOSE A CATEGORY</a>
             <ul class="name">
@@ -41,10 +42,10 @@
         <div class="col-30" data-id="{{_id}}">
             <div class="img-container">
                 <img class="{{class}}" src="{{append}}"></img>
-                <img class="profile-img" src="img/profile1.jpg">
+                <img class="profile-img" src="{{img}}">
             </div>
             <div class="text">
-                <h2 class="name">{{name}}</h2>
+                <h2 class="mentor-name">{{name}}</h2>
                 <h4 class="city">{{city}}</h4>
                 <h4 class="detail">{{helpGive}}</h4>
                 <a href="http://localhost:9000/mentor/{{_id}}"  class="profile-link">view profile</a>

@@ -16,6 +16,7 @@ var Schema = mongoose.Schema;
 
 
 var newMentor0 = new Mentor({
+    img_id: 0,
     name: "Hanna",
     lastName: "Levi",
     city: "Givatayim",
@@ -30,6 +31,7 @@ var newMentor0 = new Mentor({
 
 // newMentor.save();
 var newMentor1 = new Mentor({
+    img_id: 1,
     name: "Yossi",
     lastName: "Elmaliach",
     city: "Beit Shemesh",
@@ -43,6 +45,7 @@ var newMentor1 = new Mentor({
 });
 
 var newMentor2 = new Mentor({
+    img_id: 2,
     name: "David",
     lastName: "Cohen",
     city: "Ramat Aviv",
@@ -56,6 +59,7 @@ var newMentor2 = new Mentor({
 });
 
 var newMentor3 = new Mentor({
+    img_id: 3,
     name: "Moti",
     lastName: "Guri",
     city: "Tel Aviv",
@@ -69,6 +73,7 @@ var newMentor3 = new Mentor({
 });
 
 var newMentor4 = new Mentor({
+    img_id: 4,
     name: "Udi",
     lastName: "Usmadar",
     city: "Raanana",
@@ -82,6 +87,7 @@ var newMentor4 = new Mentor({
 });
 
 var newMentor5 = new Mentor({
+    img_id: 5,
     name: "Nana",
     lastName: "Maro",
     city: "Ramar Gan",
@@ -118,9 +124,9 @@ app.get('/results', function(req, res){
 });
 
 app.get('/category/:name', function(req,res){
-    Mentor.find({category:[req.params.name]}, (function(err, data){
+    Mentor.find({category:req.params.name}, (function(err, data){
         if(err) throw error;
-        else{console.log(data)
+        else{
             res.send(data); } ;
     }));
 });

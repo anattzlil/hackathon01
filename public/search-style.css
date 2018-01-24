@@ -44,10 +44,32 @@ body {
        font-weight: 600;
        font-family: "Open Sans";
    } 
+
 .choose-category {
     text-decoration: none;
     padding-bottom: 10px;
 }
+
+.current {
+    width:100%;
+    margin: auto;
+    display: inline-block;
+    position: relative;
+}
+
+.current p {
+    display: block;
+    position: absolute;
+    padding-left: 46.5%;
+    background-color: #e6e6e6;
+    font-family: "Open Sans";
+    font-weight: 900;
+    font-size: 20px;
+    text-align: center;
+    text-decoration: none;
+    position: relative;
+}
+
 .catagory-drop {
     font-family: "Open Sans";
     font-weight: 400;
@@ -74,7 +96,7 @@ body {
     display: block; 
     position: absolute; 
     top: 120%;
-    right: 44.5%;
+    right: 43.5%;
     z-index: 1;
 }
 
@@ -113,8 +135,7 @@ body {
 .mentorz {
     font-family: "Open Sans";
     font-weight: 900;
-    font-size: 50px;
-
+    font-size: 50px
 }
 
 .back {
@@ -140,7 +161,7 @@ body {
     line-height: 12px;
 }
 
-.name {
+.mentor-name {
     font-family: "Open Sans";
     font-weight: 400;
     font-size: 18px;
