@@ -3,18 +3,6 @@ var mentors = [];
 //getting all the mentors from the DB
 
 
-// testing get the image
-// $.ajax({
-//     method: "GET",
-//     url:'/test',
-//     success: function(data){
-//       $('#test-img').append(data);
-//     },
-//     error: function(jqXHR, textStatus, errorThrown) {
-//       console.log(textStatus);
-//     }
-// });
-
 var getMentors = function () {
     $.ajax({
         method: "GET",
@@ -59,13 +47,6 @@ var _renderMentors = function(){
     for (i in mentors){
         var newHTML = template (mentors[i]);
         $('.result-container').append(newHTML);
-        // if (mentors[i].class === "shape1" || mentors[i].class === "shape3" || mentors[i].class === "shape5"){
-        //     $('.img-container').append('<img src="img/rec.png" class="' + mentors[i].class+ '"></img>');
-        // } else if ( mentors[i].class === "shape2" || mentors[i].class === "shape6"){
-        //     $('.img-container').append('<img src="img/triangle.png" class="' + mentors[i].class+ '"></img>');
-        // }else if (mentors[i].class === "shape4"){
-        //     $('.img-container').append('<img src="img/triangle2.png" class="' + mentors[i].class+ '"></img>');
-        // }
     };
 };
 
