@@ -120,12 +120,13 @@ app.get('/results', function(req, res){
 //     res.send()
 // });
 
-var filePath = './public/public/mentor-profile.html';
 
-app.get('/test', function(req, res){
-    fs.readFile('./public/mentor-profile.html', 'utf-8', function(err, data) {
+
+app.get('/test/:id', function(req, res){
+
+    fs.readFile('./public/mentor-profile.html', 'utf-8', function(err, html) {
         if (err) throw err;
-        res.send(data);
+        res.send(html);
     })
 })
 
