@@ -35,6 +35,7 @@ var newMentor0 = new Mentor({
     availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
 });
 
+// newMentor.save();
 var newMentor1 = new Mentor({
     name: "Yossi",
     lastName: "Elmaliach",
@@ -89,6 +90,22 @@ app.use(express.static('public'));
 app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+app.get('/results', function(req, res){
+    Mentor.find((function (err, data){
+        if (err) throw error;
+        else{
+           res.send(data);
+        };
+    }));
+});
+
+// app.get('/s', function(req, res){
+//     var sR = require('public/search_result.js');
+//     res.send()
+// });
+
+
 
 app.get('/test', function (req, res, next) {
     Mentor.findOne({name: "Hanna"}, function (err, mentor) {
