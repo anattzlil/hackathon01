@@ -131,7 +131,7 @@ app.get('/category/:name', function(req,res){
     }));
 });
 
-app.get('/test', function(req, res){
+app.get('/mentor/:id', function(req, res){
     fs.readFile('./public/mentor-profile.html', 'utf-8', function(err, data) {
         if (err) throw err;
         res.send(data);
@@ -139,16 +139,16 @@ app.get('/test', function(req, res){
 })
 
 
-app.get('/userId', function (req,res){
-    res.send("User returned!");
-})
+// find mentor by id and return object
 
-app.get('/mentor/:id', function (req,res){
+app.get('/mentor/profile-data/:id', function (req,res){
+    console.log(req.params.id);
     Mentor.findById(req.params.id, function(err,foundMentor){
         if (err) {
-            res.send(err);
+           throw err;
         } else {
-            res.send("Mentor returned!");
+            console.log(foundMentor);
+            res.send(foundMentor);
         }
     }
 )});
