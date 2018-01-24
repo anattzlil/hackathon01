@@ -41,7 +41,7 @@ function renderMentorProfile() {
     var source = $('#profile-template').html();
     var template = Handlebars.compile(source);
     var newHTML = template (mentor);
-     $('.profile-content').append(newHTML);
+    $('.profile-content').append(newHTML);
 }
 
 
@@ -80,3 +80,15 @@ $('.profile-content').on('click','.send-form', function() {
     
 //     });
     
+$('.profile-content').on('click', '.arrow-back', function(){
+        $.ajax ({
+            method: "GET",
+            url: '/',
+            success: function () {
+            },
+            error: function (jqXHR, textStatus, errorThrown) {
+                console.log(textStatus);
+            }
+        });
+});
+

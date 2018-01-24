@@ -30,14 +30,12 @@
                 <li class="category-name" data-name= "Traveling"><a class="category-link" href="#">TRAVELING</a></li>
             </ul>
         </li>
-        <div class="back">
-            <img class="arrow-back" src="img/arrow_back.png">
-            <span class="back-text">BACK</span>
-        </div>
     </div>
     <div class="container">
         <div class="row result-container"></div>
     </div>
+    <br>
+    <br> 
     <script id="result-template" type="text/x-handlebars-template">
         <div class="col-30" data-id="{{_id}}">
             <div class="img-container">
@@ -50,7 +48,7 @@
                 <h4 class="detail">{{helpGive}}</h4>
                 <a href="http://localhost:9000/mentor/{{_id}}"  class="profile-link">view profile</a>
             </div>
-        </div>  
+        </div> 
     </script>
     <script src="jquery/dist/jquery.js"></script>
     <script src="handlebars/dist/handlebars.js"></script>

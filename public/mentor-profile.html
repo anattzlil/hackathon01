@@ -13,22 +13,15 @@
 <body>
     <div class="nav-bar">
         <ul>
-            <li class="logo">
-                <a>
-                    <img class="logo" src="./../../img/logo.png" alt="logo" srcset="">
-                </a>
-            </li>
-            <li class="nav-link">About</li>
-            <li class="nav-link">Contact</li>
+
+                <li class="logo"><a href="http://localhost:9000"><img class="logo" src="./../../img/logo.png" alt="logo" ></a></li>
+                <li class="nav-link">About</li>
+                <li class="nav-link">Contact</li>
         </ul>
-    </div>
+        </div> 
 
-    <!-- div for template -->
-    <div class="profile-content">
-
-    </div>
-
-
+        <!-- div for template -->
+        <div class="profile-content"></div>
 
 
     <!-- template  -->
@@ -39,7 +32,7 @@
                     <h1 class="mentor-name mentorz-flex">{{name}} {{lastName}}</h1>
                     <div class="back">
                             <img class="arrow-back" src="./../../img/arrow_back.png">
-                            <span class="back-text">BACK</span>
+                            <a class="back-button" href="http://localhost:9000"><span class="back-text">BACK</span></a>
                     </div>
                 </section>
                 <section class="profile-hero">
@@ -101,7 +94,7 @@
                                             {{/each}}
                                     </select><br>
                                      <label class="form-labels" for="message">What would you like to do?</label><br>
-                                     <p class="message-hint">Your message will be sent to Hanna</p>
+                                     <p class="message-hint">Your message will be sent to {{name}}</p>
                                      <textarea name="message" rows="6" cols="60" placeholder="Is there anything specific you wish to do or learn? What can you offer back ? tell your story."></textarea>
                                     
                                    <button class="send-form" type="button">SEND REQUEST</button>
