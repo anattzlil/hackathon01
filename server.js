@@ -18,7 +18,7 @@ var newMentor0 = new Mentor({
     lastName: "Levi",
     city: "Givatayim",
     adress: "Gnesin, 2, 3",
-    category: "Cooking",
+    category: ["Cooking", "Traveling"],
     hobbies: ["Politics", "Watching TV"],
     story: "I'm a 72 years old widdow. Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
@@ -32,7 +32,7 @@ var newMentor1 = new Mentor({
     lastName: "Elmaliach",
     city: "Beit Shemesh",
     adress: "Herzl, 1, 1",
-    category: "Travelling",
+    category: ["Traveling", "Health"],
     hobbies: ["Pink unicorns", "Making toys from baloons"],
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
@@ -45,7 +45,7 @@ var newMentor2 = new Mentor({
     lastName: "Cohen",
     city: "Ramat Aviv",
     adress: "Weizman, 1, 1",
-    category: "Travelling",
+    category: ["Health", "Education"],
     hobbies: ["UFO", "Gambling"],
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
@@ -58,7 +58,7 @@ var newMentor3 = new Mentor({
     lastName: "Guri",
     city: "Tel Aviv",
     adress: "Bugrashov, 1, 1",
-    category: "Cooking",
+    category: ["Cooking","Education"],
     hobbies: ["Creating receipes", "Go out and dance"],
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
@@ -71,7 +71,7 @@ var newMentor4 = new Mentor({
     lastName: "Usmadar",
     city: "Raanana",
     adress: "Keren-ha-Yesod, 1, 1",
-    category: "Cooking",
+    category: ["Cooking", "Health"],
     hobbies: ["Meditaiting", "Roping-jumps"],
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
@@ -84,7 +84,7 @@ var newMentor5 = new Mentor({
     lastName: "Maro",
     city: "Ramar Gan",
     adress: "Haroe, 1, 1",
-    category: "Traveling",
+    category: ["Traveling","Education"],
     hobbies: ["Singing", "Dancing salas"],
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
@@ -92,12 +92,12 @@ var newMentor5 = new Mentor({
     availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
 });
 
-// newMentor0.save();
-// newMentor1.save();
-// newMentor2.save();
-// newMentor3.save();
-// newMentor4.save();
-// newMentor5.save();
+newMentor0.save();
+newMentor1.save();
+newMentor2.save();
+newMentor3.save();
+newMentor4.save();
+newMentor5.save();
 
 
 var app = express();
