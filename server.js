@@ -120,6 +120,15 @@ app.get('/results', function(req, res){
 //     res.send()
 // });
 
+var filePath = './public/public/mentor-profile.html';
+
+app.get('/test', function(req, res){
+    fs.readFile('./public/mentor-profile.html', 'utf-8', function(err, data) {
+        if (err) throw err;
+        res.send(data);
+    })
+})
+
 
 app.listen(9000, function() {
     console.log("Ready on 9000, babe!");

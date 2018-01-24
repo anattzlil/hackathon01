@@ -1,10 +1,13 @@
-$.ajax({
-  method: "GET",
-  url:'/test',
-  success: function(data){
-    $('#test-img').append(data);
-  },
-  error: function(jqXHR, textStatus, errorThrown) {
-    console.log(textStatus);
-  }
+$('.send').on('click', function(){
+  // alert('Ululu!');
+  $.ajax({
+      method: "GET",
+      url: 'test',
+      success: function(data) {
+          $('.data').append(data);
+      },
+      error: function(jqXHR, textStatus, errorThrown) {
+          console.log(textStatus);
+      }
+  });
 });
