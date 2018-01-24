@@ -115,6 +115,14 @@ app.get('/results', function(req, res){
     }));
 });
 
+app.get('/category/:name', function(req,res){
+    Mentor.find({category:[req.params.name]}, (function(err, data){
+        if(err) throw error;
+        else{console.log(data)
+            res.send(data); } ;
+    }));
+});
+
 // app.get('/s', function(req, res){
 //     var sR = require('public/search_result.js');
 //     res.send()
