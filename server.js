@@ -12,22 +12,13 @@ mongoose.connect('mongodb://localhost/mentorsDB', function() {
 var Mentor = require('./models/mentorModel');
 var Schema = mongoose.Schema;
 
-// img path
-var imgPath0 = './public/img/profile1_0.png';
-var imgPath1 = './public/img/profile1_0.png';
-var imgPath2 = './public/img/profile1_0.png';
-var imgPath3 = './public/img/profile1_0.png';
-var imgPath4 = './public/img/profile1_0.png';
-var imgPath5 = './public/img/profile1_0.png';
-
-
 
 var newMentor0 = new Mentor({
     name: "Hanna",
     lastName: "Levi",
     city: "Givatayim",
     adress: "Gnesin, 2, 3",
-    category: "Cooking",
+    category: ["Cooking", "Traveling"],
     hobbies: ["Politics", "Watching TV"],
     story: "I'm a 72 years old widdow. Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
@@ -41,7 +32,7 @@ var newMentor1 = new Mentor({
     lastName: "Elmaliach",
     city: "Beit Shemesh",
     adress: "Herzl, 1, 1",
-    category: "Travelling",
+    category: ["Traveling", "Health"],
     hobbies: ["Pink unicorns", "Making toys from baloons"],
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
@@ -54,7 +45,7 @@ var newMentor2 = new Mentor({
     lastName: "Cohen",
     city: "Ramat Aviv",
     adress: "Weizman, 1, 1",
-    category: "Travelling",
+    category: ["Health", "Education"],
     hobbies: ["UFO", "Gambling"],
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
@@ -67,7 +58,7 @@ var newMentor3 = new Mentor({
     lastName: "Guri",
     city: "Tel Aviv",
     adress: "Bugrashov, 1, 1",
-    category: "Cooking",
+    category: ["Cooking","Education"],
     hobbies: ["Creating receipes", "Go out and dance"],
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
@@ -75,14 +66,38 @@ var newMentor3 = new Mentor({
     availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
 });
 
-newMentor0.img.data = fs.readFileSync(imgPath0);
-newMentor0.img.contentType = 'image/png';
-newMentor0.img.name = 'profile1';
-// newMentor0.save(function (err, image) {
-//       if (err) throw err;
-//     console.log('saved img'+ newMentor0.name +' to mongo');
-// });
+var newMentor4 = new Mentor({
+    name: "Udi",
+    lastName: "Usmadar",
+    city: "Raanana",
+    adress: "Keren-ha-Yesod, 1, 1",
+    category: ["Cooking", "Health"],
+    hobbies: ["Meditaiting", "Roping-jumps"],
+    story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
+    helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
+    helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
+    availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
+});
 
+var newMentor5 = new Mentor({
+    name: "Nana",
+    lastName: "Maro",
+    city: "Ramar Gan",
+    adress: "Haroe, 1, 1",
+    category: ["Traveling","Education"],
+    hobbies: ["Singing", "Dancing salas"],
+    story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
+    helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
+    helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
+    availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
+});
+
+newMentor0.save();
+newMentor1.save();
+newMentor2.save();
+newMentor3.save();
+newMentor4.save();
+newMentor5.save();
 
 
 var app = express();
@@ -113,15 +128,15 @@ app.get('/category/:name', function(req,res){
 //     res.send()
 // });
 
+var filePath = './public/public/mentor-profile.html';
 
+app.get('/test', function(req, res){
+    fs.readFile('./public/mentor-profile.html', 'utf-8', function(err, data) {
+        if (err) throw err;
+        res.send(data);
+    })
+})
 
-app.get('/test', function (req, res, next) {
-    Mentor.findOne({name: "Hanna"}, function (err, mentor) {
-            if (err) return next(err);
-            res.contentType(mentor.img.contentType);
-            res.send(mentor.img.data);      
-    });         
-});
 
 app.listen(9000, function() {
     console.log("Ready on 9000, babe!");

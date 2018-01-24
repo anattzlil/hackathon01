@@ -2,6 +2,7 @@ var mentors = [];
 
 //getting all the mentors from the DB
 
+
 var getMentors = function () {
     $.ajax({
         method: "GET",
@@ -13,6 +14,7 @@ var getMentors = function () {
             var counter = 1;
             for (i in data) {
                 mentors[i] = data[i];
+                mentors[i].img = 'img/profile'+i+'.png';
                 mentors[i].class = "shape" + counter;
                 if(counter === 1 || counter === 3 || counter === 5){
                     mentors[i].append = 'img/rec.png'

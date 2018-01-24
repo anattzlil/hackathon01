@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" type="text/css" href="search-style.css">
+    <title>inbox</title>
+</head>
+
+<body>
+    <div class="nav-bar">
+        <ul>
+                <li class="logo"><a><img class="logo" src="img/logo.png" alt="logo" srcset=""></a></li>
+                <li class="nav-link">About</li>
+                <li class="nav-link">Contact</li>
+        </ul>
+    </div>
+    <div class="row-headline">
+        <h5 class="present">presenting your</h5>
+        <h1 class="mentorz">MENTORZ</h1>
+        <li class="catagory-drop">
+            <a href="#">CHOOSE A CATAGORY</a>
+            <ul class="name">
+                <li><a href="#">COOKING CATAGORY</a></li>
+                <li><a href="#">HEALTH CATAGORY</a></li>
+                <li><a href="#">EDUCATION CATAGORY</a></li>
+            </ul>
+        </li>
+        <div class="back">
+            <img class="arrow-back" src="img/arrow_back.png">
+            <span class="back-text">BACK</span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row result-container"></div>
+    </div>
+    <script id="result-template" type="text/x-handlebars-template">
+        <div class="col-30" data-id="{{_id}}">
+            <div class="img-container">
+                <img class="{{class}}" src="{{append}}"></img>
+                <img class="profile-img" src="{{img}}">
+            </div>
+            <div class="text">
+                <h2 class="name">{{name}}</h2>
+                <h4 class="city">{{city}}</h4>
+                <h4 class="detail">{{helpGive}}</h4>
+                <a href="#" class="profile-link">view profile</a>
+            </div>
+        </div>  
+    </script>
+    <script src="jquery/dist/jquery.js"></script>
+    <script src="handlebars/dist/handlebars.js"></script>
+    <script src="inbox.js"></script>
+</body>
+
+</html>
