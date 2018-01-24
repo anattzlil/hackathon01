@@ -94,12 +94,12 @@ var newMentor5 = new Mentor({
     availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
 });
 
-newMentor0.save();
-newMentor1.save();
-newMentor2.save();
-newMentor3.save();
-newMentor4.save();
-newMentor5.save();
+// newMentor0.save();
+// newMentor1.save();
+// newMentor2.save();
+// newMentor3.save();
+// newMentor4.save();
+// newMentor5.save();
 
 
 var app = express();
@@ -124,13 +124,6 @@ app.get('/category/:name', function(req,res){
             res.send(data); } ;
     }));
 });
-
-// app.get('/s', function(req, res){
-//     var sR = require('public/search_result.js');
-//     res.send()
-// });
-
-var filePath = './public/public/mentor-profile.html';
 
 app.get('/test', function(req, res){
     fs.readFile('./public/mentor-profile.html', 'utf-8', function(err, data) {
