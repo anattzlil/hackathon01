@@ -35,6 +35,7 @@ var newMentor0 = new Mentor({
     availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
 });
 
+// newMentor.save();
 var newMentor1 = new Mentor({
     name: "Yossi",
     lastName: "Elmaliach",
@@ -153,16 +154,31 @@ var app = express();
 app.use(express.static('public'));
 app.use(express.static('node_modules'));
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: false }));
+app.use(bodyParser.urlencoded({extended: false}));
 
-app.get('/test', function (req, res, next) {
-    Mentor.findOne({name: "Hanna"}, function (err, mentor) {
-            if (err) return next(err);
-            res.contentType(mentor.img.contentType);
-            res.send(mentor.img.data);      
-    });         
+app.get('/results', function(req, res, next){
+    Mentor.find((function (err, data){
+        if (err) throw error;
+        else{
+            console.log(data);
+           res.send(data);
+        };
+    }));
 });
 
+
+// app.get('/test', function (req, res, next) {
+//     Mentor.findOne({name: "Hanna"}, function (err, mentor) {
+//             if (err) return next(err);
+//             res.contentType(mentor.img.contentType);
+//             res.send(mentor.img.data);      
+//     });         
+// });
+
+// app.get('/s', function(req, res){
+//     var sR = require('public/search_result.js');
+//     res.send()
+// });
 app.listen(9000, function() {
     console.log("Ready on 9000, babe!");
   });
