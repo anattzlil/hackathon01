@@ -26,7 +26,7 @@ $.ajax({
         success: function(data) {
             console.log(data);
             mentor = data;
-            mentor.img = './../../img/profile'+img_id+'.png';
+            mentor.img = './../../img/profile'+data.img_id+'.png';
             renderMentorProfile();
         },
         error: function (jqXHR, textStatus, errorThrown) {

@@ -26,7 +26,7 @@ var newMentor0 = new Mentor({
     story: "I'm a 72 years old widdow. Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
     helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
-    availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
+    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}]
 });
 
 // newMentor.save();
@@ -41,7 +41,7 @@ var newMentor1 = new Mentor({
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
     helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
-    availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
+    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}]
 });
 
 var newMentor2 = new Mentor({
@@ -55,7 +55,7 @@ var newMentor2 = new Mentor({
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
     helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
-    availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
+    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}]
 });
 
 var newMentor3 = new Mentor({
@@ -69,7 +69,7 @@ var newMentor3 = new Mentor({
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
     helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
-    availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
+    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}]
 });
 
 var newMentor4 = new Mentor({
@@ -83,7 +83,7 @@ var newMentor4 = new Mentor({
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
     helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
-    availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
+    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}]
 });
 
 var newMentor5 = new Mentor({
@@ -97,7 +97,7 @@ var newMentor5 = new Mentor({
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
     helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
-    availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
+    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}]
 });
 
 // newMentor0.save();
