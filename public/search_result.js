@@ -2,6 +2,19 @@ var mentors = [];
 
 //getting all the mentors from the DB
 
+
+// testing get the image
+// $.ajax({
+//     method: "GET",
+//     url:'/test',
+//     success: function(data){
+//       $('#test-img').append(data);
+//     },
+//     error: function(jqXHR, textStatus, errorThrown) {
+//       console.log(textStatus);
+//     }
+// });
+
 var getMentors = function () {
     $.ajax({
         method: "GET",
@@ -12,6 +25,11 @@ var getMentors = function () {
             console.log(data);
             var counter = 1;
             for (i in data) {
+                function hexToBase64(str) {
+                    return btoa(String.fromCharCode.apply(null, str.replace(/\r|\n/g, "").replace(/([\da-fA-F]{2}) ?/g, "0x$1 ").replace(/ +$/, "").split(" ")));
+                }
+                imageData = data[i].img.data.toString();
+                data[i].img = 'data:image/jpeg;base64,' + hexToBase64('imageData');
                 mentors[i] = data[i];
                 mentors[i].class = "shape" + counter;
                 if(counter === 1 || counter === 3 || counter === 5){

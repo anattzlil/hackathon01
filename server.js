@@ -12,15 +12,6 @@ mongoose.connect('mongodb://localhost/mentorsDB', function() {
 var Mentor = require('./models/mentorModel');
 var Schema = mongoose.Schema;
 
-// img path
-var imgPath0 = './public/img/profile1_0.png';
-var imgPath1 = './public/img/profile2.png';
-var imgPath2 = './public/img/profile4.png';
-var imgPath3 = './public/img/profile5.png';
-var imgPath4 = './public/img/profile6.png';
-var imgPath5 = './public/img/profile7.png';
-
-
 
 var newMentor0 = new Mentor({
     name: "Hanna",
@@ -101,53 +92,12 @@ var newMentor5 = new Mentor({
     availableTime: ['12/1/2018, 10:00', '12/1/2018, 14:00', '14/1/2018, 12:00']
 });
 
-// newMentor0.img.data = fs.readFileSync(imgPath0);
-// newMentor0.img.contentType = 'image/png';
-// newMentor0.img.name = 'profile1';
-// newMentor0.save(function (err, image) {
-//       if (err) throw err;
-//     console.log('saved img '+ newMentor0.name +' to mongo');
-// });
-
-// newMentor1.img.data = fs.readFileSync(imgPath1);
-// newMentor1.img.contentType = 'image/png';
-// newMentor1.img.name = 'profile1';
-// newMentor1.save(function (err, image) {
-//       if (err) throw err;
-//     console.log('saved img '+ newMentor1.name +' to mongo');
-// });
-
-// newMentor2.img.data = fs.readFileSync(imgPath2);
-// newMentor2.img.contentType = 'image/png';
-// newMentor2.img.name = 'profile1';
-// newMentor2.save(function (err, image) {
-//       if (err) throw err;
-//     console.log('saved img '+ newMentor2.name +' to mongo');
-// });
-
-// newMentor3.img.data = fs.readFileSync(imgPath3);
-// newMentor3.img.contentType = 'image/png';
-// newMentor3.img.name = 'profile1';
-// newMentor3.save(function (err, image) {
-//       if (err) throw err;
-//     console.log('saved img '+ newMentor3.name +' to mongo');
-// });
-
-// newMentor4.img.data = fs.readFileSync(imgPath4);
-// newMentor4.img.contentType = 'image/png';
-// newMentor4.img.name = 'profile1';
-// newMentor4.save(function (err, image) {
-//       if (err) throw err;
-//     console.log('saved img '+ newMentor4.name +' to mongo');
-// });
-
-// newMentor5.img.data = fs.readFileSync(imgPath5);
-// newMentor5.img.contentType = 'image/png';
-// newMentor5.img.name = 'profile1';
-// newMentor5.save(function (err, image) {
-//       if (err) throw err;
-//     console.log('saved img  '+ newMentor5.name +' to mongo');
-// });
+// newMentor0.save();
+// newMentor1.save();
+// newMentor2.save();
+// newMentor3.save();
+// newMentor4.save();
+// newMentor5.save();
 
 
 var app = express();
@@ -170,15 +120,6 @@ app.get('/results', function(req, res){
 //     res.send()
 // });
 
-
-
-app.get('/test', function (req, res, next) {
-    Mentor.findOne({name: "Hanna"}, function (err, mentor) {
-            if (err) return next(err);
-            res.contentType(mentor.img.contentType);
-            res.send(mentor.img.data);      
-    });         
-});
 
 app.listen(9000, function() {
     console.log("Ready on 9000, babe!");
