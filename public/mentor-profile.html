@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -8,9 +9,11 @@
     <link href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,600,700,800" rel="stylesheet">
     <title>Mentor-profile</title>
 </head>
+
 <body>
-        <div class="nav-bar">
+    <div class="nav-bar">
         <ul>
+
                 <li class="logo"><a href="http://localhost:9000"><img class="logo" src="./../../img/logo.png" alt="logo" ></a></li>
                 <li class="nav-link">About</li>
                 <li class="nav-link">Contact</li>
@@ -20,9 +23,10 @@
         <!-- div for template -->
         <div class="profile-content"></div>
 
-        <!-- template  -->
 
-        <script id="profile-template" type="text/x-handlebars-template">
+    <!-- template  -->
+
+    <script id="profile-template" type="text/x-handlebars-template">
             <section class="profile-headline">
                     <h5 class="meet">please meet</h5>
                     <h1 class="mentor-name mentorz-flex">{{name}} {{lastName}}</h1>
@@ -86,14 +90,14 @@
                                 
                                     <select name="availible-times">
                                             {{#each availableTime}}
-                                            <option value="time-1">{{time}}</option>
+                                            <option data-id="">{{time}}</option>
                                             {{/each}}
                                     </select><br>
                                      <label class="form-labels" for="message">What would you like to do?</label><br>
                                      <p class="message-hint">Your message will be sent to {{name}}</p>
                                      <textarea name="message" rows="6" cols="60" placeholder="Is there anything specific you wish to do or learn? What can you offer back ? tell your story."></textarea>
                                     
-                                   <button class="send-form" type="submit">SEND REQUEST</button>
+                                   <button class="send-form" type="button">SEND REQUEST</button>
                                
                                  </form>
                                  <div class="blue-sqr-form"></div>
@@ -103,9 +107,12 @@
                 </section>
             
         </script>
-        <script src="./../../jquery/dist/jquery.js"></script>
-        <script src="./../../handlebars/dist/handlebars.js"></script>
-        <script src="./../../profile.js"></script>
-    
+    <script src="./../../jquery/dist/jquery.js"></script>
+    <script src="./../../handlebars/dist/handlebars.js"></script>
+    <script src="./../../profile.js"></script>
+
 </body>
+
 </html>
+<!-- 
+value="{{time}}" -->

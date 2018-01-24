@@ -44,6 +44,42 @@ function renderMentorProfile() {
     $('.profile-content').append(newHTML);
 }
 
+
+// on click 'send inquiry' btn 
+
+$('.profile-content').on('click','.send-form', function() {
+        var message = $(this).siblings("textarea").val();
+        var chosenTime = $(this).siblings("select").find("option").filter(":selected").text();
+        alert(chosenTime);
+        var bookingRequest = {time: chosenTime, message: message};
+        console.log(bookingRequest);
+        
+});
+
+
+
+
+
+// $posts.on('click', '.add-comment', function () {
+    
+//       var $comment = $(this).siblings('.comment');
+//       var $user = $(this).siblings('.name');
+    
+//       if ($comment.val() === "" || $user.val() === "") {
+//         alert("Please enter your name and a comment!");
+//         return;
+//       }
+    
+//       var postIndex = $(this).closest('.post').index();
+//       var newComment = { text: $comment.val(), user: $user.val() };
+    
+//       app.addComment(newComment, postIndex);
+    
+//       $comment.val("");
+//       $user.val("");
+    
+//     });
+    
 $('.profile-content').on('click', '.arrow-back', function(){
         $.ajax ({
             method: "GET",
@@ -55,3 +91,4 @@ $('.profile-content').on('click', '.arrow-back', function(){
             }
         });
 });
+
