@@ -253,6 +253,15 @@ body {
     width: 137px;
 }
 
+.profile-img-hover {
+    border-radius: 50%;
+    width: 137px;
+}
+
+.hide {
+    display: none;
+}    
+
 .shape1 {
     position: absolute;
     left: 25%;

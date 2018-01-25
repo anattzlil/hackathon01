@@ -446,5 +446,15 @@ select {
     width:100%;
     min-height: 1px;
 }
+
+.area-input {
+    color: black;
+    font-size: 14px;
+    padding: 10px;
+}
+
+.area-input:focus::-webkit-input-placeholder {
+    color:transparent;
+}
  
    

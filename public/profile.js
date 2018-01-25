@@ -34,6 +34,23 @@ $.ajax({
                  }
 });
 
+//post the request from the user
+var postUserRequest = function(bookingRequest){
+    console.log(bookingRequest);
+$.ajax({
+    method: "POST",
+    url: 'userrequest',
+    data: bookingRequest, 
+    success: function(data) {
+        console.log(data);
+    alert("thank you for your request!");
+    },
+    error: function (jqXHR, textStatus, errorThrown) {
+                 console.log(textStatus);
+    }
+})
+}
+
 
 
 // render the mentor page with relevant data
@@ -50,35 +67,11 @@ function renderMentorProfile() {
 $('.profile-content').on('click','.send-form', function() {
         var message = $(this).siblings("textarea").val();
         var chosenTime = $(this).siblings("select").find("option").filter(":selected").text();
-        alert(chosenTime);
-        var bookingRequest = {time: chosenTime, message: message};
-        console.log(bookingRequest);
+        var bookingRequest = {user_name: "SHACHAR", chosenDate: chosenTime, text: message, mentor: id, uploadDate:{}};
+        postUserRequest(bookingRequest);
         
 });
 
-
-
-
-
-// $posts.on('click', '.add-comment', function () {
-    
-//       var $comment = $(this).siblings('.comment');
-//       var $user = $(this).siblings('.name');
-    
-//       if ($comment.val() === "" || $user.val() === "") {
-//         alert("Please enter your name and a comment!");
-//         return;
-//       }
-    
-//       var postIndex = $(this).closest('.post').index();
-//       var newComment = { text: $comment.val(), user: $user.val() };
-    
-//       app.addComment(newComment, postIndex);
-    
-//       $comment.val("");
-//       $user.val("");
-    
-//     });
     
 $('.profile-content').on('click', '.arrow-back', function(){
         $.ajax ({

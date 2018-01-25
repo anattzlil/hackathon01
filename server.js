@@ -12,6 +12,7 @@ mongoose.connect('mongodb://localhost/mentorsDB', function() {
 
 
 var Mentor = require('./models/mentorModel');
+var BookingRequest = require('./models/requestModel')
 var Schema = mongoose.Schema;
 
 
@@ -27,9 +28,9 @@ var newMentor0 = new Mentor({
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
     helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
     availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}]
+    // bookingReq:[]
 });
 
-// newMentor.save();
 var newMentor1 = new Mentor({
     img_id: 1,
     name: "Yossi",
@@ -41,7 +42,8 @@ var newMentor1 = new Mentor({
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
     helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
-    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}]
+    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}],
+    bookingReq:[]
 });
 
 var newMentor2 = new Mentor({
@@ -55,7 +57,8 @@ var newMentor2 = new Mentor({
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
     helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
-    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}]
+    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}],
+    bookingReq:[]
 });
 
 var newMentor3 = new Mentor({
@@ -69,7 +72,8 @@ var newMentor3 = new Mentor({
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
     helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
-    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}]
+    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}],
+    bookingReq:[]
 });
 
 var newMentor4 = new Mentor({
@@ -83,7 +87,8 @@ var newMentor4 = new Mentor({
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
     helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
-    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}]
+    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}],
+    bookingReq:[]
 });
 
 var newMentor5 = new Mentor({
@@ -97,7 +102,8 @@ var newMentor5 = new Mentor({
     story: "Used to be take care of children as a proffesion ( including my own ), I have  2 children and 5 grandchildren which I used to host for dinners at my place every week or two, but they are living far and I miss hosting and cooking for them.",
     helpGive: "I'm fond of cooking since early years. Will be happy to share my cooking secrets and cook with you something.",
     helpTake: "I only want to speak and share my experinence with youngsters, so our meeting is already a freat help",
-    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}]
+    availableTime: [{time:'12/1/2018, 10:00'}, {time:'12/1/2018, 14:00'}, {time:'14/1/2018, 12:00'}],
+    bookingReq:[]
 });
 
 // newMentor0.save();
@@ -165,11 +171,22 @@ app.get('/mentor/profile-data/:id', function (req,res){
         if (err) {
            throw err;
         } else {
-            console.log(foundMentor);
             res.send(foundMentor);
         }
     }
 )});
+
+//post user request to DB
+app.post('/mentor/userrequest', function(req, res){
+   console.log(req.body);
+    var mentorId = req.body.mentor;
+    var userRequest = new BookingRequest(req.body);
+    console.log(userRequest);
+    Mentor.findByIdAndUpdate(mentorId, {$push:{bookingReq:userRequest}}, function(err, userRequest){
+        if (err) throw err;
+        else {res.send(userRequest)};
+    }); 
+})
 
 
 app.listen(9000, function() {

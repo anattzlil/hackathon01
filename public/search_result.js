@@ -89,13 +89,6 @@ var _renderMentors = function(){
     };
 };
 
-//pressing the button will redirect to the mentors profile
-// $('.result-container').on('click', '.profile-link', function(){
-
-// })
-
-//pressing on back will redirect to home
-
 
 //optional-button "more"
 
@@ -105,4 +98,18 @@ $('.category-link').on('click', function(){
     var id = $(this).parents('.category-name').data().name;
     console.log(id);
     category(id);
+})
+
+//hover on profile pic
+
+$('.result-container').on('mouseenter', '.img-container', function(){
+    console.log('enter!');
+    $(this).find('.profile-img-hover').toggleClass('hide');
+    $(this).find('.profile-img').toggleClass('hide');
+})
+
+$('.result-container').on('mouseleave', '.img-container', function(){
+    console.log('leave!');
+    $(this).find('.profile-img-hover').toggleClass('hide');
+    $(this).find('.profile-img').toggleClass('hide');
 })
