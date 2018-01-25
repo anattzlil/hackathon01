@@ -114,6 +114,8 @@ app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 
+
+// to give back all mentors
 app.get('/results', function(req, res){
     Mentor.find((function (err, data){
         if (err) throw error;
@@ -123,6 +125,7 @@ app.get('/results', function(req, res){
     }));
 });
 
+// to give back right mentor of the category
 app.get('/category/:name', function(req,res){
     Mentor.find({category:req.params.name}, (function(err, data){
         if(err) throw error;
@@ -131,6 +134,7 @@ app.get('/category/:name', function(req,res){
     }));
 });
 
+// to send html for mentor-profile
 app.get('/mentor/:id', function(req, res){
     fs.readFile('./public/mentor-profile.html', 'utf-8', function(err, data) {
         if (err) throw err;
@@ -138,9 +142,23 @@ app.get('/mentor/:id', function(req, res){
     })
 })
 
+app.get('/mentor/:id/inbox', function(req, res){
+    fs.readFile('./public/inbox.html', 'utf-8', function(err, data) {
+        if (err) throw err;
+        res.send(data);
+    })
+})
+
+app.get('/user/:id/inbox', function(req, res){
+    fs.readFile('./public/inbox-user.html', 'utf-8', function(err, data) {
+        if (err) throw err;
+        res.send(data);
+    })
+})
+
+
 
 // find mentor by id and return object
-
 app.get('/mentor/profile-data/:id', function (req,res){
     console.log(req.params.id);
     Mentor.findById(req.params.id, function(err,foundMentor){
