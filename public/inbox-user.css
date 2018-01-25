@@ -81,7 +81,6 @@ body {
     font-weight: 700;
     font-size: 14px;
     text-align: left;
-    text-decoration: underline;
     text-transform: uppercase;
     padding: 10px 50px;
 }
@@ -299,4 +298,8 @@ width: 10%;
    border: 3px solid #003471;
    font-weight: 900;
    font-size: 14px;
+}
+
+.main {
+    font-weight: 900;
 }
