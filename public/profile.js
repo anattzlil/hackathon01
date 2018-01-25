@@ -1,18 +1,3 @@
-// get request for createing a route for profile page
-
-// var createProfileRoute = function () {
-//     $.ajax({
-//         method: "GET",
-//         url: '/userId',
-//         dataType: "json",
-//         success: function (data) {
-//             console.log('data returned!');
-//         },
-//         error: function (jqXHR, textStatus, errorThrown) {
-//             console.log(textStatus);
-//           }
-//         });
-//     };
 
 var mentor;
 
@@ -43,6 +28,7 @@ $.ajax({
     data: bookingRequest, 
     success: function(data) {
         console.log(data);
+
     alert("thank you for your request!");
     },
     error: function (jqXHR, textStatus, errorThrown) {

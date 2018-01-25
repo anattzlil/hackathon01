@@ -142,6 +142,7 @@ io.on('connection', function(socket){
 io.emit('some event', { for: 'everyone' });
 
 // to give back all mentors
+
 app.get('/results', function(req, res){
     Mentor.find((function (err, data){
         if (err) throw error;
@@ -151,7 +152,6 @@ app.get('/results', function(req, res){
     }));
 });
 
-// to give back right mentor of the category
 app.get('/category/:name', function(req,res){
     Mentor.find({category:req.params.name}, (function(err, data){
         if(err) throw error;
@@ -160,7 +160,6 @@ app.get('/category/:name', function(req,res){
     }));
 });
 
-// to send html for mentor-profile
 app.get('/mentor/:id', function(req, res){
     fs.readFile('./public/mentor-profile.html', 'utf-8', function(err, data) {
         if (err) throw err;
@@ -175,18 +174,10 @@ app.get('/mentor/:id/inbox', function(req, res){
     })
 })
 
-app.get('/user/:id/inbox', function(req, res){
-    fs.readFile('./public/inbox-user.html', 'utf-8', function(err, data) {
-        if (err) throw err;
-        res.send(data);
-    })
-})
-
-
 
 // find mentor by id and return object
+
 app.get('/mentor/profile-data/:id', function (req,res){
-    console.log(req.params.id);
     Mentor.findById(req.params.id, function(err,foundMentor){
         if (err) {
            throw err;
@@ -196,18 +187,33 @@ app.get('/mentor/profile-data/:id', function (req,res){
     }
 )});
 
+
 //post user request to DB
 app.post('/mentor/userrequest', function(req, res){
-   console.log(req.body);
     var mentorId = req.body.mentor;
-    var userRequest = new BookingRequest(req.body);
-    console.log(userRequest);
-    Mentor.findByIdAndUpdate(mentorId, {$push:{bookingReq:userRequest}}, function(err, userRequest){
+    var userRequest = new BookingRequest({
+        user_name: req.body.user_name,
+        text: req.body.text,
+        chosenDate: req.body.chosenDate,
+    });
+    userRequest.save();
+    Mentor.findByIdAndUpdate({_id: mentorId}, {$push:{bookingReq:userRequest}}, {new: true}, function(err, userRequest){
         if (err) throw err;
-        else {res.send(userRequest)};
+        else {
+            res.send(userRequest)};
     }); 
 })
 
+app.get('/mentor/:id/profile-data/inbox', function (req,res){
+    Mentor.find({_id:req.params.id}).populate({path:'bookingReq', model:BookingRequest}).exec(function(err,foundMentor){
+        if (err) {
+           throw err;
+        } else {
+            console.log(foundMentor);
+            res.send(foundMentor);
+        }
+    })
+});
 
 // app.listen(9000, function() {
 //     console.log("Ready on 9000, babe!");
@@ -215,4 +221,8 @@ app.post('/mentor/userrequest', function(req, res){
 
 http.listen(9000, function() {
     console.log("Ready on 9000, babe!");
+
 });
+
+
+

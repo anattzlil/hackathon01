@@ -15,6 +15,7 @@ var getMentors = function () {
             for (i in data) {
                 mentors[i] = data[i];
                 mentors[i].img = 'img/profile'+mentors[i].img_id+'.png';
+                mentors[i].imgAlt = 'img/profile'+mentors[i].img_id+'a.png';
                 mentors[i].class = "shape" + counter;
                 if(counter === 1 || counter === 3 || counter === 5){
                     mentors[i].append = 'img/rec.png'
@@ -54,6 +55,7 @@ var category = function(category_name){
             for (i in data) {
                 mentors[i] = data[i];
                 mentors[i].img = 'img/profile'+mentors[i].img_id+'.png';
+                mentors[i].imgAlt = 'img/profile'+mentors[i].img_id+'a.png';
                 mentors[i].class = "shape" + counter;
                 if(counter === 1 || counter === 3 || counter === 5){
                     mentors[i].append = 'img/rec.png'
@@ -113,3 +115,16 @@ $('.result-container').on('mouseleave', '.img-container', function(){
     $(this).find('.profile-img-hover').toggleClass('hide');
     $(this).find('.profile-img').toggleClass('hide');
 })
+
+//back button
+$('.profile-content').on('click', '.arrow-back', function(){
+    $.ajax ({
+        method: "GET",
+        url: '/',
+        success: function () {
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+            console.log(textStatus);
+        }
+    });
+});
