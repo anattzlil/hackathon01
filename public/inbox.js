@@ -7,7 +7,7 @@ $(function () {
   var nickname = "Hanna";
   var currentNick;
 
-  $('form').submit(function(){
+  $('.answer-convo-btn').on('click',function(){
     socket.emit('send-nickname', nickname);
     socket.emit('chat message', $('#m').val(), nickname);
     $('#m').val('');
@@ -24,7 +24,7 @@ $(function () {
       $('.user-inbox #messages-mentor:last-child').last().append($('<p class="mentor-inbox-text">').text(msg));
     }
     else { 
-      $('.user-inbox').append('<div id="messages-user" class="msg-user"><img class="user-image-inbox" src="./../../../img/user.png"><span class="user-name-inbox">SHAHAR</span></div>');
+      $('.user-inbox').append('<div id="messages-user" class="msg-user"><img class="user-image-inbox" src="./../../../img/user.png"><span class="user-name-inbox">SHACHAR</span></div>');
       $('.user-inbox #messages-user:last-child').append($('<p class="user-inbox-text">').text(msg));
     }
   });

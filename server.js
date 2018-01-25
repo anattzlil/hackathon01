@@ -174,6 +174,12 @@ app.get('/mentor/:id/inbox', function(req, res){
     })
 })
 
+app.get('/user/:id/inbox', function(req, res){
+    fs.readFile('./public/inbox-user.html', 'utf-8', function(err, data) {
+        if (err) throw err;
+        res.send(data);
+    })
+})
 
 // find mentor by id and return object
 
@@ -186,6 +192,17 @@ app.get('/mentor/profile-data/:id', function (req,res){
         }
     }
 )});
+
+app.get('/user/:id/profile-data/inbox', function (req,res){
+    Mentor.find({_id:req.params.id}).populate({path:'bookingReq', model:BookingRequest}).exec(function(err,foundMentor){
+        if (err) {
+           throw err;
+        } else {
+            console.log(foundMentor);
+            res.send(foundMentor);
+        }
+    });
+});
 
 
 //post user request to DB
