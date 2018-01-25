@@ -55,6 +55,7 @@ $('.profile-content').on('click','.send-form', function() {
         var chosenTime = $(this).siblings("select").find("option").filter(":selected").text();
         var bookingRequest = {user_name: "SHACHAR", chosenDate: chosenTime, text: message, mentor: id, uploadDate:{}};
         postUserRequest(bookingRequest);
+        $(this).siblings("textarea").val("");
         
 });
 
