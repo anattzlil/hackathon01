@@ -115,10 +115,33 @@ var newMentor5 = new Mentor({
 
 
 var app = express();
+var http = require('http').Server(app);
+var io = require('socket.io')(http);
 app.use(express.static('public'));
 app.use(express.static('node_modules'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
+
+//chat
+io.on('connection', function(socket){
+    console.log('a user connected');
+    socket.on('disconnect', function(){
+      console.log('user disconnected');
+    });
+
+    socket.on('send-nickname', function(nickname) {
+        socket.nickname = nickname;
+        io.emit('send-nickname', socket.nickname);
+    });
+
+    socket.on('chat message', function(msg){
+        io.emit('chat message', msg, socket.nickname);
+      });
+});
+
+io.emit('some event', { for: 'everyone' });
+
+// to give back all mentors
 
 app.get('/results', function(req, res){
     Mentor.find((function (err, data){
@@ -192,6 +215,14 @@ app.get('/mentor/:id/profile-data/inbox', function (req,res){
     })
 });
 
-app.listen(9000, function() {
+// app.listen(9000, function() {
+//     console.log("Ready on 9000, babe!");
+// });
+
+http.listen(9000, function() {
     console.log("Ready on 9000, babe!");
-  });
+
+});
+
+
+

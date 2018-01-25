@@ -60,7 +60,8 @@
                 <div class="col-60">
                     <h3 class="your-conv">YOUR CONVERSATION WITH {{user_name}}</h3>
                     <div class="user-inbox">
-                        <div class="msg-user">
+                           
+                        <!-- <div class="msg-user">
                             <img class="user-image-inbox" src="./../../../img/user.png">
                             <span class="user-name-inbox">{{user_name}}</span>
                             <p class="user-inbox-text">{{text}}</p>
@@ -73,16 +74,21 @@
                             <span class="mentor-name-inbox">YOU</span>
                             <p class="mentor-inbox-text">I'm a 72 years old widdow. Used to be take care of children as a proffesion ( including my own
                                 ), I have 2 children and 5 grandchildren which I used to host for dinners at my</p>
-                        </div>
+                        </div> -->
                     </div>
-                    <div class="form-convo">
-                        <textarea type="text" class="text-input" paceholder="your message here"></textarea><br>
+                    <form action="" class="form-convo">
+                        <textarea type="text" id="m" class="text-input" paceholder="your message here"></textarea><br>
                         <button class="answer-convo-btn">SEND</button>
-                    </div>
+                    </form>
                 </div>
             </div>
         </div>
         <div class="col-10"></div>
+
+    </div>
+    <script src="./../../../socket.io/socket.io.js"></script>
+    <script>
+            var socket = io();
     </script>
     <script src="./../../../jquery/dist/jquery.js"></script>
     <script src="./../../../handlebars/dist/handlebars.js"></script>
