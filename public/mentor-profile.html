@@ -21,7 +21,13 @@
         </div> 
 
         <!-- div for template -->
-        <div class="profile-content"></div>
+        <div class="profile-content">
+                <div class="popup">
+                        <h2>Thanks for contacting!</h2><br><br>
+                        You should get a reply in 24 Hours :)<br><br><br><br>
+                <span class="popup-btn-close">close</span>
+            </div>
+        </div>
 
 
     <!-- template  -->
@@ -61,6 +67,12 @@
                     </div>
         
                 </section>
+
+                <!-- <div class="popup">
+                        <h2>Thanks for contacting {{name}} !</h2><br><br>
+                        You should get a reply in 24 Hours :)<br><br><br><br>
+                <span class="popup-btn-close">close</span>
+            </div> -->
         
                 <section class="profile-main">
                     <div class="left-side-profile-wrapper">
@@ -97,7 +109,7 @@
                                      <p class="message-hint">Your message will be sent to {{name}}</p>
                                      <textarea class="area-input" name="message" rows="6" cols="60" placeholder="Is there anything specific you wish to do or learn? What can you offer back ? tell your story."></textarea>
                                     
-                                   <button class="send-form" type="button">SEND REQUEST</button>
+                                   <button class="send-form popup-trigger" type="button">SEND REQUEST</button>
                                
                                  </form>
                                  <div class="blue-sqr-form"></div>

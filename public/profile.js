@@ -42,9 +42,12 @@ $.ajax({
     url: 'userrequest',
     data: bookingRequest, 
     success: function(data) {
-        console.log(data);
-    alert("thank you for your request!");
+        // console.log(data);
+    // alert("thank you for your request!");
+    //    openPopup("thank you for your request!"); 
+       console.log("thank you for your request!");
     },
+
     error: function (jqXHR, textStatus, errorThrown) {
                  console.log(textStatus);
     }
@@ -69,9 +72,11 @@ $('.profile-content').on('click','.send-form', function() {
         var chosenTime = $(this).siblings("select").find("option").filter(":selected").text();
         var bookingRequest = {user_name: "SHACHAR", chosenDate: chosenTime, text: message, mentor: id, uploadDate:{}};
         postUserRequest(bookingRequest);
+        openPopup();
         
 });
 
+// $('.profile-content').find(".pop-up")
     
 $('.profile-content').on('click', '.arrow-back', function(){
         $.ajax ({
@@ -85,3 +90,124 @@ $('.profile-content').on('click', '.arrow-back', function(){
         });
 });
 
+
+// // Popup Window
+
+// function openPopup() {
+//     var scrollTop = '';
+//     var newHeight = '100';
+     
+//     $(window).bind('scroll', function() {
+//       scrollTop = $( window ).scrollTop();
+//       newHeight = scrollTop + 100;
+//     });
+            
+//     $('.send-form').click(function(e) {
+//       e.stopPropagation();
+//       if(jQuery(window).width() < 767) {
+//         $(this).after( $( ".popup" ) );
+//         $('.popup').show().addClass('popup-mobile').css('top', 0);
+//         $('html, body').animate({
+//           scrollTop: $('.popup').offset().top
+//         }, 500);   
+//       } else {
+//         $('.popup').removeClass('popup-mobile').css('top', newHeight).toggle();
+//       };
+//     });
+            
+//     $('html').click(function() {
+//       $('.popup').hide();
+//     });
+     
+//     $('.popup-btn-close').click(function(e){
+//       $('.popup').hide();
+//     });
+     
+//     $('.popup').click(function(e){
+//       e.stopPropagation();
+//     });
+
+// }
+
+
+
+
+// // Popup Window version 2
+
+function openPopup() {
+    var scrollTop = '';
+    var newHeight = '400';
+     
+    $(window).bind('scroll', function() {
+      scrollTop = $( window ).scrollTop();
+      newHeight = scrollTop + 100;
+    });
+            
+    // $('.send-form').click(function(e) {
+    //  e.stopPropagation();
+      if(jQuery(window).width() < 767) {
+        $(this).after( $( ".popup" ) );
+        $('.popup').show().addClass('popup-mobile').css('top', 0);
+        $('html, body').animate({
+          scrollTop: $('.popup').offset().top
+        }, 500);   
+      } else {
+        $('.popup').removeClass('popup-mobile').css('top', newHeight).toggle();
+      };
+    // });
+            
+    $('html').click(function() {
+      $('.popup').hide();
+    });
+     
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+    });
+     
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+
+}
+
+$('.profile-content').find(".pop-up")
+
+
+
+// Popup Window version 3
+
+// function openPopup() {
+//     var scrollTop = '';
+//     var newHeight = '300';
+     
+//     $(window).bind('scroll', function() {
+//       scrollTop = $( window ).scrollTop();
+//       newHeight = scrollTop + 100;
+//     });
+            
+//     // $('.send-form').click(function(e) {
+//     //  e.stopPropagation();
+//       if(jQuery(window).width() < 767) {
+//         $(this).after( $('.profile-content').find(".pop-up") );
+//         $('.profile-content').find(".pop-up").show().addClass('popup-mobile').css('top', 0);
+//         $('html, body').animate({
+//           scrollTop: $('.profile-content').find(".pop-up").offset().top
+//         }, 500);   
+//       } else {
+//         $('.profile-content').find(".pop-up").removeClass('popup-mobile').css('top', newHeight).toggle();
+//       };
+//     // });
+            
+//     $('html').click(function() {
+//         $('.profile-content').find(".pop-up").hide();
+//     });
+     
+//     $('.popup-btn-close').click(function(e){
+//         $('.profile-content').find(".pop-up").hide();
+//     });
+     
+//     $('.profile-content').find(".pop-up").click(function(e){
+//       e.stopPropagation();
+//     });
+
+// }
